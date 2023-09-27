@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Space Search with Links</title>
+  <style>
+    /* Your CSS styles here */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow: hidden;
+      background-image: url("D:\Miniproject\McLarenArtura-10_crop-16x9.webp"); /* Replace with the actual image URL */
+      background-size: cover;
+    }
+
+    #container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input[type="text"], button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    #results {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .blur {
+      filter: blur(5px);
+    }
+
+    /* Custom styles for destination links */
+    .destination-links {
+      margin-top: 20px;
+      display: none; /* Initially hide the destination links container */
+    }
+
+    .destination-links a {
+      display: block;
+      background-color:black;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+    .book-button {
+      background-color: #008CBA;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!--img class="bg" src="D:\Miniproject\McLarenArtura-10_crop-16x9.webp" width=1400 height=700 alt="Background Image"-->
+  <div id="container">
+    <h1>Parking Space Search with Links</h1>
+    <div>
+      <label for="destination">Enter Destination:</label>
+      <input type="text" id="destination" placeholder="Enter your destination">
+      <button id="searchBtn">Search</button>
+    </div>
+    <div id="results">
+      <!-- Parking space results will be displayed here -->
+    </div>
+    <!-- Destination links will be displayed here -->
+    <div id="uppal-links" class="destination-links">
+      <h2>Uppal Destination Links:</h2>
+      <!-- Add destination links for Uppal here -->
+      <a href="https://maps.app.goo.gl/5z8gm7Q7gBg42uon7" target="_blank">Uppal Gandhi Statue</a>
+      <a href="https://maps.app.goo.gl/geepA5HmSF8wNWLf9" target="_blank">Mini Shilparamam</a>
+      <a href="https://maps.app.goo.gl/jFNSNEZRqevLAoHS8" target="_blank">Parking Manikanta Enterprize</a>
+      <a href="https://maps.app.goo.gl/ttpPuYgk576AZ5Yx6" target="_blank">NGRI Car Parking (Habsiguda)</a>
+      <a href="https://maps.app.goo.gl/bNENVEtRz6SxSkQ8A" target="_blank">Sai Ram Gardens Parking</a>
+    </div>
+    <div id="secunderabad-links" class="destination-links">
+      <!-- Add destination links for Secunderabad here -->
+      <h2>Secunderabad Destination Links:</h2>
+      <a href="https://maps.app.goo.gl/L1jQizXa8b6t4RnQA" target="_blank">HMR Paid Parking (Secunderabad)</a>
+      <a href="https://maps.app.goo.gl/xL7hUVwGvEMfvUJV6" target="_blank">IICT Four Wheeler Parking Area</a>
+      <a href="https://maps.app.goo.gl/hFuCum78MyiiccUD9" target="_blank">SVIT Parking</a>
+      <a href="https://maps.app.goo.gl/d7sCztyHuvqMHF1DA" target="_blank">Yasodha Hospital Paid Parking</a>
+    </div>
+    <!-- Add this section to include destination links for Vanasthalipuram -->
+<div id="vanasthalipuram-links" class="destination-links">
+  <h2>Vanasthalipuram Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/zXNZcawWRgSmYY826" target="_blank">NATIONAL PARKING YARD</a>
+  <a href="https://maps.app.goo.gl/1oYXvYozHyFD1eit5" target="_blank">RAJIV GANDHI PARK PARKING</a>
+  <a href="https://maps.app.goo.gl/kkyTQDv5KvtZfrib8" target="_blank">RAVI PARKING</a>
+  <a href="https://maps.app.goo.gl/Q2LxNayRcVbisWSt7" target="_blank">SRI MALLIKARJUNA PARKING PLACE</a>
+</div>
+<!-- Add this section to include destination links for Karmanghat -->
+<div id="karmanghat-links" class="destination-links">
+  <h2>Karmanghat Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/F4ASuyD8ycAZsjsD9" target="_blank">SRI GANAPATHI PARKING PLACE</a>
+  <a href="https://maps.app.goo.gl/3Qb4k79sMFiNgeSg6" target="_blank">OM SRI SAI PARKING PLACE</a>
+  <a href="https://maps.app.goo.gl/p9v6t8Un5J69voME6" target="_blank">NEXA PARKING PLACE</a>
+</div>
+<!-- Add this section to include destination links for L.B.Nagar -->
+<div id="lbnagar-links" class="destination-links">
+  <h2>L.B.Nagar- Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/xzwKH9fHjRrfVKhi9" target="_blank">REDDY PARKING</a>
+  <a href="https://maps.app.goo.gl/WQiBuvtBCX12Wwma7" target="_blank">SRI MALLIKARJUNA PARKING PLACE</a>
+  <a href="https://maps.app.goo.gl/e5TVZFYYSo7VHpEH7" target="_blank">SRI VISHAL PARKING PLACE</a>
+  <a href="https://maps.app.goo.gl/YgQ4yGTiYmUkNV847" target="_blank">VINAYAKA PARKING</a>
+  <a href="https://maps.app.goo.gl/McxApnvB9EK9hfpG7" target="_blank">BHAVANI PARKING SERVICE</a>
+  <a href="https://maps.app.goo.gl/roxaMw5gLHn6aZ2i7" target="_blank">SIRAJ PARKING WALLET</a>
+  <a href="https://maps.app.goo.gl/K3aozm2HvSzXsNTEA" target="_blank">PARKING PALACE (CHANDRA PURI COLONY)</a>
+  <a href="https://maps.app.goo.gl/6jRJHW813LDsjnfk7" target="_blank">BVK CAR PARKING</a>
+</div>
+<!-- Add this section to include destination links for Nagole -->
+<div id="nagole-links" class="destination-links">
+  <h2>Nagole Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/bNENVEtRz6SxSkQ8A" target="_blank">Sai Ram Gardens Parking</a>
+  <a href="https://maps.app.goo.gl/7wMBr6W7N55ARwTF7" target="_blank">NAVA CONVENTION PARKING</a>
+  <a href="https://maps.app.goo.gl/dXtoo4vkFv4jzx5s7" target="_blank">FRIENDS ZONE</a>
+  <a href="https://maps.app.goo.gl/7xubQRrBYW1rPPNV9" target="_blank">SRI VISHAL PARKING PLACE</a>
+  <a href="https://maps.app.goo.gl/qnsbbesQuYxXg7R56" target="_blank">SURESH PARKING SERVICE</a>
+</div>
+<!-- Add this section to include destination links for Dilsuknagar -->
+<div id="dilsuknagar-links" class="destination-links">
+  <h2>Dilsuknagar Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/abc123" target="_blank">Destination Link 1</a>
+  <a href="https://maps.app.goo.gl/def456" target="_blank">Destination Link 2</a>
+  <!-- Add more destination links as needed -->
+</div>
+<!-- Add this section to include destination links for Koti -->
+<div id="koti-links" class="destination-links">
+  <h2>Koti Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/gokul-chat-parking" target="_blank">Gokul Chat Parking</a> 
+  <a href="https://maps.app.goo.gl/mjm-parking" target="_blank">M.J.M Parking</a>
+  <a href="https://maps.app.goo.gl/fernandez-parking" target="_blank">Fernandezz Parking</a>
+  <a href="https://maps.app.goo.gl/hs-car-parking" target="_blank">HS Car Parking</a>
+  <!-- Add more destination links as needed -->
+</div>
+<!-- Add this section to include destination links for Lakdikapool -->
+<div id="lakdikapool-links" class="destination-links">
+  <h2>Lakdikapool Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/lakdikapool-mmts-parking" target="_blank">Lakdikapool MMTS Parking</a>
+  <a href="https://maps.app.goo.gl/akbeer-parking-service-nampally" target="_blank">Akbeer Parking Service (Nampally)</a>
+  <a href="https://maps.app.goo.gl/parking-ground" target="_blank">Parking Ground</a>
+  <!-- Add more destination links as needed -->
+</div>
+<!-- Add this section to include destination links for Khairtabad -->
+<div id="khairtabad-links" class="destination-links">
+  <h2>Khairtabad Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/lakdikapool-mmts-parking" target="_blank">Lakdikapool MMTS Parking</a>
+  <a href="https://maps.app.goo.gl/sk-price" target="_blank">S.K Price</a>
+  <!-- Add more destination links as needed -->
+</div>
+<!-- Add this section to include destination links for Mehidipatnam -->
+<div id="mehidipatnam-links" class="destination-links">
+  <h2>Mehidipatnam Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/rythu-bazar-paid-parking" target="_blank">Rythu Bazar Paid Parking</a>
+  <a href="https://maps.app.goo.gl/langer-houze-parking-garage" target="_blank">Langer Houze Parking Garage</a>
+  <a href="https://maps.app.goo.gl/parking-masab-tank" target="_blank">Parking (Masab Tank)</a>
+  <!-- Add more destination links as needed -->
+</div>
+<!-- Add this section to include destination links for Kukatpally -->
+<div id="kukatpally-links" class="destination-links">
+  <h2>Kukatpally Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/parking" target="_blank">Parking</a>
+  <a href="https://maps.app.goo.gl/murgan-parking-yard" target="_blank">Murgan Parking Yard</a>
+  <a href="https://maps.app.goo.gl/kphb-road-parking" target="_blank">KPHB Road Parking</a>
+  <a href="https://maps.app.goo.gl/pisa-house-parking" target="_blank">Pisa House Parking</a>
+  <a href="https://maps.app.goo.gl/jntu-main-parking" target="_blank">JNTU Main Parking</a>
+  <!-- Add more destination links as needed -->
+</div>
+<!-- Add this section to include destination links for Ameerpet -->
+<div id="ameerpet-links" class="destination-links">
+  <h2>Ameerpet Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/sri-sai-veerabadra-vehicle-parking" target="_blank">Sri Sai Veerabadra Vehicle Parking</a>
+  <a href="https://maps.app.goo.gl/gurudwara-car-parking" target="_blank">Gurudwara Car Parking</a>
+  <!-- Add more destination links as needed -->
+</div>
+<!-- Add this section to include destination links for Banjara Hills -->
+<div id="banjara-hills-links" class="destination-links">
+  <h2>Banjara Hills Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/jalagam-vengalrao-car-parking" target="_blank">Jalagam Vengalrao Car Parking</a>
+  <a href="https://maps.app.goo.gl/sri-jaganath-temple-parking" target="_blank">Sri Jaganath Temple Parking</a>
+  <a href="https://maps.app.goo.gl/kbr-park-parking-2" target="_blank">KBR Park Parking 2</a>
+  <a href="https://maps.app.goo.gl/kbr-park-parking-1" target="_blank">KBR Park Parking 1</a>
+  <a href="https://maps.app.goo.gl/kbr-park-parking-5" target="_blank">KBR Park Parking 5</a>
+  <a href="https://maps.app.goo.gl/city-center-parking" target="_blank">City Center Parking</a>
+  <!-- Add more destination links as needed -->
+</div>
+<!-- Add this section to include destination links for Jubilee Hills -->
+<div id="jubilee-hills-links" class="destination-links">
+  <h2>Jubilee Hills Destination Links:</h2>
+  <a href="https://maps.app.goo.gl/chakravarthi-parking-palace" target="_blank">Chakravarthi Parking Palace</a>
+  <a href="https://maps.app.goo.gl/kbr-park-parking-3" target="_blank">KBR Park Parking 3</a>
+  <a href="https://maps.app.goo.gl/kbr-car-parking-5" target="_blank">KBR Car Parking 5</a>
+  <a href="https://maps.app.goo.gl/ttd-temple-parking-entrance" target="_blank">TTD Temple Parking Entrance</a>
+  <a href="https://maps.app.goo.gl/parking-area-filmnagar" target="_blank">Parking Area (Filmnagar)</a>
+  <a href="https://maps.app.goo.gl/parking-place" target="_blank">Parking Place</a>
+  <!-- Add more destination links as needed -->
+</div>
+
+  </div>
+  <div id="slotBookings" class="destination-links">
+    <!-- Slot bookings for the selected destination will be displayed here -->
+  </div>
+  <script>
+    // JavaScript code here...
+    // Imaginary parking space data (replace with real data when available)
+    const parkingSpaces = [
+      {
+        "id": 1,
+        "location": "Uppal",
+        "price_per_hour": 5.00,
+        "availability": 20
+      },
+      {
+        "id": 2,
+        "location": "Secunderabad",
+        "price_per_hour": 7.50,
+        "availability": 10,
+        "lat": 40.7259,
+        "lng": -74.0072
+      },
+      {
+        "id": 3,
+        "location": "Vanasthalipuram",
+        "price_per_hour": 6.00,
+        "availability": 15,
+        "lat": 40.7193,
+        "lng": -74.0424
+      },
+      {
+        "id": 4,
+        "location": "Karmanghat",
+        "price_per_hour": 4.50,
+        "availability": 5,
+        "lat": 40.7282,
+        "lng": -74.0776
+      },
+      {
+        "id": 5,
+        "location": "L.B.Nagar",
+        "price_per_hour": 5.00,
+        "availability": 20,
+        "lat": 40.7128,
+        "lng": -74.0060
+        
+      },
+      {
+        "id": 6,
+        "location": "Nagole",
+        "price_per_hour": 7.50,
+        "availability": 10,
+        "lat": 40.7259,
+        "lng": -74.0072
+      },
+      {
+        "id": 7,
+        "location": "Dilsuknagar",
+        "price_per_hour": 6.00,
+        "availability": 15,
+        "lat": 40.7193,
+        "lng": -74.0424
+      },
+      {
+        "id": 8,
+        "location": "Charminar",
+        "price_per_hour": 4.50,
+        "availability": 5,
+        "lat": 40.7282,
+        "lng": -74.0776
+      },
+      {
+        "id": 9,
+        "location": "Koti",
+        "price_per_hour": 5.00,
+        "availability": 20
+      },
+      {
+        "id": 10,
+        "location": "Lakdkikapool",
+        "price_per_hour": 7.50,
+        "availability": 10,
+        "lat": 40.7259,
+        "lng": -74.0072
+      },
+      {
+        "id": 11,
+        "location": "Khairtabad",
+        "price_per_hour": 6.00,
+        "availability": 15,
+        "lat": 40.7193,
+        "lng": -74.0424
+      },
+      {
+        "id": 12,
+        "location": "Mehidipatnam",
+        "price_per_hour": 4.50,
+        "availability": 5,
+        "lat": 40.7282,
+        "lng": -74.0776
+      },
+      {
+        "id": 13,
+        "location": "Kukatpally",
+        "price_per_hour": 5.00,
+        "availability": 20,
+        "lat": 40.7128,
+        "lng": -74.0060
+        
+      },
+      {
+        "id": 14,
+        "location": "Ameerpet",
+        "price_per_hour": 7.50,
+        "availability": 10,
+        "lat": 40.7259,
+        "lng": -74.0072
+      },
+      {
+        "id": 15,
+        "location": "Banjara-hills",
+        "price_per_hour": 6.00,
+        "availability": 15,
+        "lat": 40.7193,
+        "lng": -74.0424
+      },
+      {
+        "id": 16,
+        "location": "Jubilee-hills",
+        "price_per_hour": 4.50,
+        "availability": 5,
+        "lat": 40.7282,
+        "lng": -74.0776
+      },
+      // ... (other parking space data) ...
+    ];
+
+    // Function to display parking space results
+    function displayParkingSpaces(parkingData) {
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+
+      if (parkingData.length === 0) {
+        resultsDiv.textContent = 'No parking spaces available near this destination.';
+      } else {
+        parkingData.forEach(space => {
+          const spaceDiv = document.createElement('div');
+          spaceDiv.textContent = `Location: ${space.location}, Price per Hour: $${space.price_per_hour.toFixed(2)}, Availability: ${space.availability} spots`;
+          spaceDiv.style.color = '#fff';
+          resultsDiv.appendChild(spaceDiv);
+        });
+      }
+    }
+    // Function to book a parking slot
+    function bookParkingSlot(destination, location) {
+      // This is a placeholder function for demonstration purposes.
+      // In a real-world scenario, you would need server-side functionality
+      // to handle parking slot bookings.
+
+      // Display a confirmation message
+      alert(`Booked a parking slot at ${location} in ${destination}`);
+    }
+    // Update the click event to book a parking slot
+    document.querySelectorAll('.destination-links a').forEach(link => {
+      link.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the link from navigating
+
+        const destination = document.getElementById('destination').value;
+        const location = this.textContent; // Get the parking location from the link text
+
+        bookParkingSlot(destination, location);
+      });
+    });
+    // Search button click event
+    document.getElementById('searchBtn').addEventListener('click', () => {
+      const destination = document.getElementById('destination').value;
+      const matchingParkingSpaces = searchParkingSpacesByLocation(destination);
+      displayParkingSpaces(matchingParkingSpaces);
+
+      // Show destination links based on the entered destination
+      showDestinationLinks(destination.toLowerCase());
+    });
+
+    // Function to search parking spaces by location
+    function searchParkingSpacesByLocation(destination) {
+      return parkingSpaces.filter(space => space.location.toLowerCase().includes(destination.toLowerCase()));
+    }
+
+    // Function to show destination links
+    function showDestinationLinks(destination) {
+      // Hide all destination link containers
+      const destinationLinkContainers = document.querySelectorAll('.destination-links');
+      destinationLinkContainers.forEach(container => {
+        container.style.display = 'none';
+      });
+
+      // Show the specific destination link container
+      const destinationLinkContainer = document.querySelector(`#${destination}-links`);
+      if (destinationLinkContainer) {
+        destinationLinkContainer.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
